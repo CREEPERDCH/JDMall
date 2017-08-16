@@ -5,11 +5,14 @@ package com.creeperdch.jdmall.fragment;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Message;
 import android.support.annotation.Nullable;
 import android.view.View;
+import android.widget.AdapterView;
 
+import com.creeperdch.jdmall.activity.OrderDetailsActivity;
 import com.creeperdch.jdmall.adapter.OrderListBaseAdapter;
 import com.creeperdch.jdmall.bean.OrderListBean;
 import com.creeperdch.jdmall.consf.IDiyMessage;
@@ -21,7 +24,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-public abstract class BaseOrderFragment extends BaseFragment implements XListView.IXListViewListener {
+public abstract class BaseOrderFragment extends BaseFragment implements XListView.IXListViewListener, AdapterView.OnItemClickListener {
     protected XListView mListView;
     protected OrderListBaseAdapter mAdapter;
     protected View mNullView;
@@ -61,6 +64,11 @@ public abstract class BaseOrderFragment extends BaseFragment implements XListVie
 
 
     @Override
+    public void onRefresh() {
+
+    }
+
+    @Override
     public void onLoadMore() {
 
     }
@@ -71,6 +79,7 @@ public abstract class BaseOrderFragment extends BaseFragment implements XListVie
         mListView.setPullRefreshEnable(true);
         mListView.setPullLoadEnable(false);
         mListView.setXListViewListener(this);
+        mListView.setOnItemClickListener(this);
         /*
           1.拿到构造器
           2.根据构造器创建对象
@@ -83,5 +92,15 @@ public abstract class BaseOrderFragment extends BaseFragment implements XListVie
             e.printStackTrace();
         }
         mNullView = containerView.findViewById(nullViewId);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        if (position != 0) {
+            Intent intent = new Intent(getActivity(), OrderDetailsActivity.class);
+            OrderListBean bean = mAdapter.getItem(position - 1);
+            intent.putExtra(OrderDetailsActivity.OID_KEY, bean.getOid());
+            startActivity(intent);
+        }
     }
 }

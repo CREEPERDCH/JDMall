@@ -13,8 +13,16 @@ import android.widget.TextView;
 import com.creeperdch.jdmall.R;
 import com.creeperdch.jdmall.bean.OrderListBean;
 import com.creeperdch.jdmall.consf.OrderStatus;
+import com.creeperdch.jdmall.listener.IConfirmReceiveListener;
 
 public class WaitReceiveAdapter extends OrderListBaseAdapter {
+
+    private IConfirmReceiveListener mListener;
+
+    public void setListener(IConfirmReceiveListener listener) {
+        this.mListener = listener;
+    }
+
     public WaitReceiveAdapter(Context context) {
         super(context);
     }
@@ -29,11 +37,19 @@ public class WaitReceiveAdapter extends OrderListBaseAdapter {
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        OrderListBean bean = mDatas.get(position);
+        final OrderListBean bean = mDatas.get(position);
         holder.orderNoTv.setText("订单编号:" + bean.getOrderNum());
         holder.orderStateTv.setText(OrderStatus.getOrderStatus(bean.getStatus()));
         showOrderProductIv(holder.pContainerLl, bean.getItems());
         holder.priceTv.setText("$ " + bean.getTotalPrice());
+        holder.doBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mListener != null) {
+                    mListener.onOrderReceived(bean.getOid());
+                }
+            }
+        });
         return convertView;
     }
 

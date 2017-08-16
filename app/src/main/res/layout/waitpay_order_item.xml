@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@android:color/white"
@@ -13,7 +12,7 @@
         android:layout_marginLeft="5dp"
         android:layout_marginTop="5dp"
         android:textColor="#999B9E"
-        android:textSize="14sp"/>
+        android:textSize="14sp" />
 
     <TextView
         android:id="@+id/order_state_tv"
@@ -23,7 +22,7 @@
         android:layout_marginRight="20dp"
         android:layout_marginTop="5dp"
         android:textColor="#FE6868"
-        android:textSize="14sp"/>
+        android:textSize="14sp" />
 
     <View
         android:id="@+id/divider"
@@ -31,7 +30,7 @@
         android:layout_height="0.5dp"
         android:layout_below="@id/order_no_tv"
         android:layout_marginTop="8dp"
-        android:background="#E1E1E1"/>
+        android:background="#E1E1E1" />
 
     <LinearLayout
         android:id="@+id/p_container_ll"
@@ -47,7 +46,7 @@
             android:layout_marginLeft="8dp"
             android:background="@drawable/search_et_shap"
             android:padding="5dp"
-            android:visibility="invisible"/>
+            android:visibility="invisible" />
 
         <ImageView
             android:layout_width="60dp"
@@ -55,7 +54,7 @@
             android:layout_marginLeft="8dp"
             android:background="@drawable/search_et_shap"
             android:padding="5dp"
-            android:visibility="invisible"/>
+            android:visibility="invisible" />
 
         <ImageView
             android:layout_width="60dp"
@@ -63,7 +62,7 @@
             android:layout_marginLeft="8dp"
             android:background="@drawable/search_et_shap"
             android:padding="5dp"
-            android:visibility="invisible"/>
+            android:visibility="invisible" />
 
         <ImageView
             android:layout_width="60dp"
@@ -71,7 +70,7 @@
             android:layout_marginLeft="8dp"
             android:background="@drawable/search_et_shap"
             android:padding="5dp"
-            android:visibility="invisible"/>
+            android:visibility="invisible" />
 
         <ImageView
             android:layout_width="60dp"
@@ -79,7 +78,7 @@
             android:layout_marginLeft="8dp"
             android:background="@drawable/search_et_shap"
             android:padding="5dp"
-            android:visibility="invisible"/>
+            android:visibility="invisible" />
     </LinearLayout>
 
     <View
@@ -88,7 +87,7 @@
         android:layout_height="0.5dp"
         android:layout_below="@id/p_container_ll"
         android:layout_marginTop="10dp"
-        android:background="#E1E1E1"/>
+        android:background="#E1E1E1" />
 
     <TextView
         android:id="@+id/price_tv"
@@ -99,7 +98,7 @@
         android:layout_marginTop="8dp"
         android:textColor="#F23030"
         android:textSize="20sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/do_btn"
@@ -112,8 +111,22 @@
         android:background="@drawable/order_item_btn_bg"
         android:focusable="false"
         android:padding="6dp"
+        android:text="继续支付"
         android:textColor="#F44A4A"
         android:textSize="16sp"
-        android:textStyle="bold"
-        android:visibility="gone"/>
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/cancel_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/do_btn"
+        android:layout_marginRight="5dp"
+        android:layout_toLeftOf="@id/do_btn"
+        android:background="@drawable/order_item_btn_bg"
+        android:focusable="false"
+        android:text="取消订单"
+        android:textColor="#F44A4A"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 </RelativeLayout>

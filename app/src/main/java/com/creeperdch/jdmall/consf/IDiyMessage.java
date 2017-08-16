@@ -58,4 +58,16 @@ public class IDiyMessage {
     public static final int DEFAULT_RECEIVER_ACTION = 26;
 
     public static final int ORDER_LIST_ACTION = 27;
+
+    public static final int ORDER_DETAILS_ACTION = 28;
+
+    public static final int ADD_ORDER_ACTION = 29;
+
+    public static final int CANCEL_ORDER = 30;
+
+    public static final int CONFIRM_RECEIVER_ORDER_ACTION = 31;
+
+    public static final int GET_PAYINFO_ACTION = 32;
+
+    public static final int MOCK_PAY_ACTION = 33;
 }

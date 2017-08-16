@@ -55,4 +55,15 @@ public class HttpConstant {
 
     public static final String ORDER_LIST_URL = BASE_URL + "/getOrderByStatus";
 
+    public static final String ORDER_DETAILS_URL = BASE_URL + "/getOrderDetail";
+
+    public static final String ADD_ORDER_URL = BASE_URL + "/addOrder";
+
+    public static final String CANCEL_ORDER_URL = BASE_URL + "/cancelOrder";
+
+    public static final String CONFIRM_ORDER_URL = BASE_URL + "/confirmOrder";
+
+    public static final String GET_PAYINFO_URL = BASE_URL + "/getPayInfo";
+
+    public static final String MOCK_PAY_URL = BASE_URL + "/pay";
 }

@@ -3,7 +3,9 @@ package com.creeperdch.jdmall.bean;
  * Created by CREEPER_D on 2017/8/13.
  */
 
-public class OrderListBean {
+import java.io.Serializable;
+
+public class OrderListBean implements Serializable {
     private String items;//JSON ARRAY
     private long oid;
     private String orderNum;
